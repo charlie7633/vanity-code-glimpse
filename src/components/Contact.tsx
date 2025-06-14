@@ -29,11 +29,21 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
+    // Create mailto URL with form data
+    const subject = encodeURIComponent(formData.subject);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
+    const mailtoUrl = `mailto:charlievanity7633@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Open email client
+    window.location.href = mailtoUrl;
+
+    // Show success message
     setTimeout(() => {
       toast({
-        title: "Message Sent!",
-        description: "Thank you for your message. I'll get back to you soon!",
+        title: "Email Client Opened!",
+        description: "Your email client should now be open with the message pre-filled.",
       });
       setFormData({ name: '', email: '', subject: '', message: '' });
       setIsSubmitting(false);
@@ -50,15 +60,15 @@ const Contact = () => {
     },
     {
       name: 'GitHub',
-      value: 'github.com/charlievanity',
-      href: 'https://github.com/charlievanity',
+      value: 'github.com/charlie7633',
+      href: 'https://github.com/charlie7633',
       icon: Github,
       color: 'hover:text-gray-300'
     },
     {
       name: 'LinkedIn',
-      value: 'linkedin.com/in/charlievanity',
-      href: 'https://linkedin.com/in/charlievanity',
+      value: 'linkedin.com/in/charles-ogunsanya-b7954a206',
+      href: 'https://www.linkedin.com/in/charles-ogunsanya-b7954a206/',
       icon: Linkedin,
       color: 'hover:text-blue-400'
     }
@@ -148,7 +158,7 @@ const Contact = () => {
                   disabled={isSubmitting}
                   className="w-full bg-white text-primary hover:bg-white/90 py-3 text-lg font-medium"
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  {isSubmitting ? 'Opening Email...' : 'Send Message'}
                 </Button>
               </form>
             </CardContent>
@@ -162,9 +172,9 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-white/80 text-lg leading-relaxed mb-6">
-                  I'm currently available for freelance work and full-time opportunities. 
-                  Whether you have a project in mind or just want to chat about technology, 
-                  I'd love to hear from you.
+                  I'm currently searching for internship and graduate level roles at the moment. 
+                  Whether you're a startup or a big sized company feel free to contact me. 
+                  I would love to join your team!!!
                 </p>
                 <p className="text-white/80 text-lg leading-relaxed">
                   Feel free to reach out through any of the channels below, and I'll get back to you as soon as possible.
