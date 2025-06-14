@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { House } from 'lucide-react';
 
 const Navigation = () => {
   const location = useLocation();
@@ -17,8 +18,8 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-lg border-b border-white/20">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="text-2xl font-bold text-white hover:text-white/80 transition-colors">
-            Charlie
+          <Link to="/" className="text-white hover:text-white/80 transition-colors">
+            <House size={32} />
           </Link>
           
           {/* Desktop Navigation */}
