@@ -1,33 +1,34 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, Car } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
     {
       title: 'Simplify My Car Web App',
       description: 'A comprehensive web application designed to streamline car management tasks. Features include maintenance tracking, expense monitoring, and service reminders with an intuitive user interface.',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
-      githubUrl: '#',
-      liveUrl: '#',
-      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=400&fit=crop'
+      technologies: ['Flask', 'Python', 'Poetry', 'CSS'],
+      githubUrl: 'https://github.com/charlie7633/car-savvy-simplify',
+      image: null, // We'll use a car icon instead
+      useIcon: true
     },
     {
       title: 'Blackjack Game',
-      description: 'An interactive web-based Blackjack game featuring smooth animations, score tracking, and responsive design. Built with vanilla JavaScript to demonstrate fundamental programming concepts.',
-      technologies: ['JavaScript', 'HTML5', 'CSS3', 'Canvas API'],
-      githubUrl: '#',
-      liveUrl: '#',
-      image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop'
+      description: 'An interactive web-based Blackjack game featuring smooth animations, score tracking, and responsive design. Built with Java to demonstrate fundamental programming concepts.',
+      technologies: ['Java', 'HTML5', 'CSS3'],
+      githubUrl: '#', // You'll provide this later
+      image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop',
+      useIcon: false
     },
     {
-      title: 'ByCharlie Boi Portfolio Website',
-      description: 'A modern, responsive portfolio website showcasing my development skills and projects. Features a sleek design inspired by modern UI/UX principles with smooth animations and transitions.',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
-      githubUrl: '#',
-      liveUrl: '#',
-      image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=400&fit=crop'
+      title: 'Video Editing Portfolio Site',
+      description: 'A modern, responsive portfolio website showcasing my video editing skills and projects. Features a sleek design inspired by modern UI/UX principles with smooth animations and transitions.',
+      technologies: ['Canva', 'CapCut', 'YouTube'],
+      githubUrl: 'https://charlieboi.my.canva.site/?fbclid=PAZXh0bgNhZW0CMTEAAadQQH4QFbes-3M-pdTnuwCo9tDIPlD9jk0x9ALUnJt8b6KLlBTY71k3Olj4Gw_aem_Kcq6JEO48aGy1U57-xQR6A',
+      image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=400&fit=crop',
+      useIcon: false,
+      isPortfolio: true
     }
   ];
 
@@ -56,11 +57,15 @@ const Projects = () => {
               <div className="md:flex">
                 <div className="md:w-1/2">
                   <div className="h-64 md:h-full bg-gradient-to-br from-white/20 to-white/5 flex items-center justify-center overflow-hidden">
-                    <img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
+                    {project.useIcon ? (
+                      <Car size={120} className="text-white/60 group-hover:text-white/80 transition-colors duration-500" />
+                    ) : (
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    )}
                   </div>
                 </div>
                 <div className="md:w-1/2 p-8 flex flex-col justify-between">
@@ -97,15 +102,7 @@ const Projects = () => {
                       onClick={() => window.open(project.githubUrl, '_blank')}
                     >
                       <ArrowUp className="w-4 h-4 rotate-45" />
-                      GitHub
-                    </Button>
-                    <Button 
-                      variant="outline" 
-                      className="border-white text-white hover:bg-white hover:text-primary flex items-center gap-2"
-                      onClick={() => window.open(project.liveUrl, '_blank')}
-                    >
-                      <ArrowUp className="w-4 h-4 rotate-45" />
-                      Live Demo
+                      {project.isPortfolio ? 'Portfolio' : 'GitHub'}
                     </Button>
                   </div>
                 </div>
