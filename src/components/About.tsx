@@ -1,11 +1,17 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
-import { Code, Database, GitBranch, Globe, Coffee } from 'lucide-react';
+import { Code, Database, GitBranch, Globe, Coffee, MessageCircle, Users, Briefcase, FileText, Shield, HardDrive, Target, Zap, User, Eye } from 'lucide-react';
 
 const About = () => {
   const skillCategories = {
-    communication: ['Excellent verbal and written communication', 'Customer service', 'Teamwork', 'Multitasking'],
+    communication: [
+      { name: 'Excellent verbal and written communication', icon: MessageCircle },
+      { name: 'Customer service', icon: Users },
+      { name: 'Teamwork', icon: Users },
+      { name: 'Multitasking', icon: Briefcase }
+    ],
     technical: [
       { name: 'Java', icon: Coffee },
       { name: 'Python', icon: Code },
@@ -14,8 +20,20 @@ const About = () => {
       { name: 'Git', icon: GitBranch },
       { name: 'Backend & web development', icon: Code }
     ],
-    toolsAndSoftware: ['Microsoft Word', 'Excel', 'PowerPoint', 'Access', 'Regulatory awareness', 'Data handling'],
-    attributes: ['Initiative', 'Adaptability', 'Independent work ethic', 'Attention to detail']
+    toolsAndSoftware: [
+      { name: 'Microsoft Word', icon: FileText },
+      { name: 'Excel', icon: FileText },
+      { name: 'PowerPoint', icon: FileText },
+      { name: 'Access', icon: HardDrive },
+      { name: 'Regulatory awareness', icon: Shield },
+      { name: 'Data handling', icon: Database }
+    ],
+    attributes: [
+      { name: 'Initiative', icon: Target },
+      { name: 'Adaptability', icon: Zap },
+      { name: 'Independent work ethic', icon: User },
+      { name: 'Attention to detail', icon: Eye }
+    ]
   };
 
   const experiences = [
@@ -117,9 +135,15 @@ const About = () => {
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold text-white mb-4">Communication</h3>
                 <div className="space-y-2">
-                  {skillCategories.communication.map((skill, index) => (
-                    <div key={index} className="text-white/80 text-sm">• {skill}</div>
-                  ))}
+                  {skillCategories.communication.map((skill, index) => {
+                    const IconComponent = skill.icon;
+                    return (
+                      <div key={index} className="text-white/80 text-sm flex items-center gap-2">
+                        <IconComponent size={16} className="text-white/60" />
+                        • {skill.name}
+                      </div>
+                    );
+                  })}
                 </div>
               </CardContent>
             </Card>
@@ -145,9 +169,15 @@ const About = () => {
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold text-white mb-4">Tools & Software</h3>
                 <div className="space-y-2">
-                  {skillCategories.toolsAndSoftware.map((skill, index) => (
-                    <div key={index} className="text-white/80 text-sm">• {skill}</div>
-                  ))}
+                  {skillCategories.toolsAndSoftware.map((skill, index) => {
+                    const IconComponent = skill.icon;
+                    return (
+                      <div key={index} className="text-white/80 text-sm flex items-center gap-2">
+                        <IconComponent size={16} className="text-white/60" />
+                        • {skill.name}
+                      </div>
+                    );
+                  })}
                 </div>
               </CardContent>
             </Card>
@@ -156,9 +186,15 @@ const About = () => {
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold text-white mb-4">Attributes</h3>
                 <div className="space-y-2">
-                  {skillCategories.attributes.map((skill, index) => (
-                    <div key={index} className="text-white/80 text-sm">• {skill}</div>
-                  ))}
+                  {skillCategories.attributes.map((skill, index) => {
+                    const IconComponent = skill.icon;
+                    return (
+                      <div key={index} className="text-white/80 text-sm flex items-center gap-2">
+                        <IconComponent size={16} className="text-white/60" />
+                        • {skill.name}
+                      </div>
+                    );
+                  })}
                 </div>
               </CardContent>
             </Card>
