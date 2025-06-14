@@ -1,14 +1,14 @@
 
 import Navigation from '@/components/Navigation';
-import About from '@/components/About';
+import Projects from '@/components/Projects';
 
-const Index = () => {
+const ProjectsPage = () => {
   return (
     <div className="min-h-screen bg-portfolio-gradient">
       <Navigation />
-      <About />
+      <Projects />
     </div>
   );
 };
 
-export default Index;
+export default ProjectsPage;
