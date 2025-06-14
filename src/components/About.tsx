@@ -67,12 +67,28 @@ const About = () => {
       <div className="container mx-auto px-6">
         {/* Hero Section */}
         <div className="text-center mb-16 animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            Charles Ogunsanya
-          </h1>
-          <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Motivated second-year Computer Science student at Kingston University with a passion for technology, software systems, and operations. Skilled in problem-solving, teamwork, and automation, with hands-on experience in customer-facing and operational roles.
-          </p>
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-8 mb-8">
+            <div className="flex-shrink-0">
+              <div className="relative">
+                <div className="w-48 h-48 rounded-full border-4 border-white/30 overflow-hidden shadow-2xl backdrop-blur-sm">
+                  <img 
+                    src="/lovable-uploads/db853ab0-c3e9-48da-a1e6-af029c043550.png" 
+                    alt="Charles Ogunsanya"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="absolute inset-0 rounded-full border-4 border-white/20 animate-pulse"></div>
+              </div>
+            </div>
+            <div className="flex-1 max-w-3xl">
+              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+                Charles Ogunsanya
+              </h1>
+              <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed">
+                Motivated second-year Computer Science student at Kingston University with a passion for technology, software systems, and operations. Skilled in problem-solving, teamwork, and automation, with hands-on experience in customer-facing and operational roles.
+              </p>
+            </div>
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/projects">
               <Button size="lg" className="bg-white text-primary hover:bg-white/90 px-8 py-3 text-lg">
