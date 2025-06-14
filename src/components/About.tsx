@@ -50,7 +50,7 @@ const About = () => {
       ]
     },
     {
-      role: 'Web Developer (Operational Systems)',
+      role: 'Web Developer intern',
       company: 'Whyspa',
       period: 'Jun 2020 - Mar 2022',
       location: 'Basildon, UK',
