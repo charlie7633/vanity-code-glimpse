@@ -1,12 +1,19 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
+import { Code, Database, GitBranch, Globe, Coffee } from 'lucide-react';
 
 const About = () => {
   const skillCategories = {
     communication: ['Excellent verbal and written communication', 'Customer service', 'Teamwork', 'Multitasking'],
-    technical: ['Java', 'Python', 'SQL', 'Flask', 'Git', 'Backend & web development'],
+    technical: [
+      { name: 'Java', icon: Coffee },
+      { name: 'Python', icon: Code },
+      { name: 'SQL', icon: Database },
+      { name: 'Flask', icon: Globe },
+      { name: 'Git', icon: GitBranch },
+      { name: 'Backend & web development', icon: Code }
+    ],
     toolsAndSoftware: ['Microsoft Word', 'Excel', 'PowerPoint', 'Access', 'Regulatory awareness', 'Data handling'],
     attributes: ['Initiative', 'Adaptability', 'Independent work ethic', 'Attention to detail']
   };
@@ -121,9 +128,15 @@ const About = () => {
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold text-white mb-4">Technical</h3>
                 <div className="space-y-2">
-                  {skillCategories.technical.map((skill, index) => (
-                    <div key={index} className="text-white/80 text-sm">• {skill}</div>
-                  ))}
+                  {skillCategories.technical.map((skill, index) => {
+                    const IconComponent = skill.icon;
+                    return (
+                      <div key={index} className="text-white/80 text-sm flex items-center gap-2">
+                        <IconComponent size={16} className="text-white/60" />
+                        • {skill.name}
+                      </div>
+                    );
+                  })}
                 </div>
               </CardContent>
             </Card>
